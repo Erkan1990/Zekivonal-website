@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zeki Vonal – Pflasterarbeiten, Terrassenbau & Maurerarbeiten</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      color: #222;
+      background-color: #f5f7f5;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 10%;
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    header h1 {
+      font-size: 1.3rem;
+      color: #1b5e20;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #1b5e20;
+      font-weight: 500;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 6rem 1rem;
+      background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.9)), url('pflaster.jpeg') center/cover no-repeat;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      color: #1b5e20;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .btn-group a {
+      display: inline-block;
+      background-color: #2e7d32;
+      color: white;
+      text-decoration: none;
+      padding: 0.8rem 1.6rem;
+      border-radius: 6px;
+      margin: 0.4rem;
+      font-weight: 600;
+    }
+
+    .btn-group a:hover {
+      background-color: #1b5e20;
+    }
+
+    section {
+      padding: 4rem 10%;
+    }
+
+    h3 {
+      font-size: 1.8rem;
+      color: #1b5e20;
+      margin-bottom: 1.5rem;
+    }
+
+    .leistungen {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card h4 {
+      margin-bottom: 0.8rem;
+      color: #2e7d32;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .gallery img {
+      width: 32%;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    footer {
+      background-color: #1b5e20;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #c8e6c9;
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+      }
+
+      .hero h2 {
+        font-size: 1.6rem;
+      }
+
+      .gallery img {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Zeki Vonal</h1>
+    <nav>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#ueber-uns">Über uns</a>
+      <a href="#referenzen">Referenzen</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Zeki Vonal in Ihrer Region:<br>Pflasterarbeiten, Terrassenbau & Maurerarbeiten</h2>
+    <p>Wir gestalten Außenanlagen, auf die Sie stolz sind – mit <strong>qualitativ hochwertiger Arbeit</strong>, klaren Absprachen und <strong>kostenloser Beratung</strong>. Von Pflasterflächen und Terrassen bis zu Mauer- und Gartenbau – zuverlässig aus einer Hand.</p>
+    <div class="btn-group">
+      <a href="tel:+491733570229">Jetzt anrufen</a>
+      <a href="#kontakt">Angebot anfordern</a>
+    </div>
+  </section>
+
+  <section id="leistungen">
+    <h3>Diese Leistungen bieten wir an</h3>
+    <div class="leistungen">
+      <div class="card">
+        <h4>Pflasterarbeiten</h4>
+        <p>Einfahrten, Wege, Stellplätze & Höfe – fachgerecht in Naturstein, Betonstein oder Klinker mit funktionaler Entwässerung.</p>
+      </div>
+      <div class="card">
+        <h4>Terrassenbau</h4>
+        <p>Individuelle Terrassen aus Naturstein, Betonstein oder Holz – langlebig, pflegeleicht und perfekt an Haus & Garten angepasst.</p>
+      </div>
+      <div class="card">
+        <h4>Maurerarbeiten</h4>
+        <p>Stützmauern, Beeteinfassungen, Treppenanlagen & Reparaturen – sauber gemauert und optisch harmonisch.</p>
+      </div>
+      <div class="card">
+        <h4>Garten- & Landschaftsbau</h4>
+        <p>Rasen (Rollrasen), Beete, Hecken, Erdarbeiten, Zaunbau & Pflege – alles für ein stimmiges Gesamtbild.</p>
+      </div>
+      <div class="card">
+        <h4>Kostenlose Beratung</h4>
+        <p>Wir kommen vorbei, beraten ehrlich und erstellen ein transparentes Angebot – ohne versteckte Kosten.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="ueber-uns">
+    <h3>Über uns</h3>
+    <p>Wir sind ein engagiertes Team für Außenanlagen im gesamten Umland. Unser Anspruch: <strong>präzise Ausführung, saubere Baustellen und langlebige Ergebnisse.</strong> Jede Fläche planen wir sinnvoll – vom Unterbau bis zur Entwässerung.  
+    <br><br>
+    Standort: <strong>63667 Nidda</strong>  
+    <br>Telefon: <strong>+49 173 3570229</strong>  
+    <br>E-Mail: <strong>info@vonalgalabau-nidda.de</strong></p>
+  </section>
+
+  <section id="referenzen">
+    <h3>Referenzen & Projekte</h3>
+    <div class="gallery">
+      <img src="pflaster.jpeg" alt="Pflasterarbeiten Beispiel">
+      <img src="terrasse.jpeg" alt="Terrassenbau Beispiel">
+      <img src="garten.jpeg" alt="Gartenbau Beispiel">
+    </div>
+  </section>
+
+    <section id="kontaktformular">
+    <h3>Kontakt & kostenlose Beratung</h3>
+    <p>Sie haben Fragen oder möchten ein unverbindliches Angebot? Schreiben Sie uns einfach über das Formular – wir melden uns schnellstmöglich bei Ihnen.</p>
+
+    <form action="#" method="post" style="max-width:600px; margin:auto; background:white; padding:2rem; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+      <label for="name">Name *</label>
+      <input type="text" id="name" name="name" required style="width:100%; padding:0.7rem; margin:0.5rem 0 1rem; border:1px solid #ccc; border-radius:5px;">
+
+      <label for="email">E-Mail *</label>
+      <input type="email" id="email" name="email" required style="width:100%; padding:0.7rem; margin:0.5rem 0 1rem; border:1px solid #ccc; border-radius:5px;">
+
+      <label for="message">Nachricht *</label>
+      <textarea id="message" name="message" rows="5" required style="width:100%; padding:0.7rem; margin:0.5rem 0 1rem; border:1px solid #ccc; border-radius:5px;"></textarea>
+
+      <div style="margin-bottom:1rem;">
+        <input type="checkbox" id="privacy" name="privacy" required>
+        <label for="privacy">Ich stimme der Verarbeitung meiner Angaben gemäß der <a href="#datenschutz" style="color:#2e7d32;">Datenschutzerklärung</a> zu.</label>
+      </div>
+
+      <button type="submit" style="background-color:#2e7d32; color:white; border:none; padding:0.8rem 1.6rem; border-radius:6px; cursor:pointer; font-weight:600;">
+        Absenden
+      </button>
+    </form>
+  </section>
+
+
+  <footer id="kontakt">
+    <p>&copy; 2025 Zeki Vonal – Pflasterarbeiten, Garten- & Landschaftsbau</p>
+    <p>
+      <a href="#impressum">Impressum</a> | <a href="#datenschutz">Datenschutz</a>
+    </p>
+  </footer>
+
+</body>
+</html>
