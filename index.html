@@ -96,18 +96,25 @@ footer{background:#0e1b16;color:#cfe3d8;padding:40px 0}
 <section id="galerie">
  <div class="container">
   <h2 class="section-title">Beispielarbeiten</h2><div class="underline"></div>
-  <div class="slider">
-<div class="slides" id="slides">
-  <img src="https://images.unsplash.com/photo-1616128618694-96a9f875f4bd?auto=format&fit=crop&w=1600&q=80" alt="Pflastereinfahrt">
-  <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1600&q=80" alt="Terrassenbau">
-  <img src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2a74?auto=format&fit=crop&w=1600&q=80" alt="Gartenanlage">
-</div>
+<!-- Galerie -->
+<section id="referenzen" class="section-muted">
+  <div class="container">
+    <h2 class="section-title">Beispielarbeiten</h2>
+    <div class="underline"></div>
 
+    <div class="slider" aria-label="Projekt-Galerie">
+      <div class="slides" id="slides">
+        <img src="https://cdn.pixabay.com/photo/2016/03/27/19/31/paving-1286741_1280.jpg" alt="Pflastereinfahrt">
+        <img src="https://cdn.pixabay.com/photo/2018/08/24/22/08/terrace-3622572_1280.jpg" alt="Terrassenbau">
+        <img src="https://cdn.pixabay.com/photo/2016/09/02/11/10/garden-1631645_1280.jpg" alt="Gartenanlage">
+      </div>
 
-   <button class="prev">‹</button><button class="next">›</button>
+      <button class="prev" aria-label="Vorheriges Bild">‹</button>
+      <button class="next" aria-label="Nächstes Bild">›</button>
+    </div>
   </div>
- </div>
 </section>
+
 
 <section id="kontakt" class="section-muted">
  <div class="container">
@@ -176,4 +183,5 @@ setInterval(()=>{i=(i+1)%n;show()},5000);
 </script>
 </body>
 </html>
+
 
