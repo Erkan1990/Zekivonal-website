@@ -7,132 +7,34 @@
   <meta name="description" content="Zeki Vonal: Pflasterarbeiten, Terrassenbau, Maurerarbeiten sowie kompletter Garten- & Landschaftsbau. Qualitativ hochwertige Arbeit & kostenlose Beratung." />
   <meta name="theme-color" content="#138a36" />
 
-  <style>
-    :root{
-      --brand:#138a36;          /* Hauptgrün */
-      --brand-dark:#0f6e2c;
-      --text:#203128;
-      --muted:#5a6a61;
-      --bg:#ffffff;
-      --section:#f6f8f7;
-      --card:#ffffff;
-      --shadow:0 10px 25px rgba(0,0,0,.08);
-      --radius:16px;
-      --container:1180px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;
-      color:var(--text); background:var(--bg); line-height:1.6;
-    }
-    a{color:var(--brand); text-decoration:none}
-    a:hover{color:var(--brand-dark)}
-    .container{max-width:var(--container); margin:auto; padding:0 20px}
-    .btn{
-      display:inline-block; padding:12px 20px; border-radius:999px; font-weight:600;
-      background:var(--brand); color:#fff; box-shadow:var(--shadow); transition:.2s transform,.2s box-shadow,.2s background;
-    }
-    .btn:hover{background:var(--brand-dark); transform:translateY(-1px)}
-    .btn-outline{
-      background:#fff; color:var(--brand); border:2px solid var(--brand);
-    }
-    /* Header */
-    header{
-      position:sticky; top:0; z-index:50; background:#fff; box-shadow:0 2px 12px rgba(0,0,0,.06);
-    }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between; height:72px;
-    }
-    .brand{
-      display:flex; gap:12px; align-items:center; font-weight:800; letter-spacing:.2px;
-      color:var(--brand-dark);
-    }
-    .brand svg{height:36px; width:36px}
-    nav ul{display:flex; gap:20px; list-style:none; padding:0; margin:0; align-items:center}
-    nav a{font-weight:600; color:var(--text)}
-    .burger{display:none; background:none; border:0; padding:8px}
-    /* Mobile menu */
-    @media (max-width:900px){
-      nav ul{display:none; position:absolute; left:0; right:0; top:72px; background:#fff; padding:16px 20px; box-shadow:var(--shadow); flex-direction:column; align-items:flex-start}
-      nav ul.open{display:flex}
-      .burger{display:block}
-    }
+  /* Fix: responsives Kontaktformular und Datenschutz-Checkbox */
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.consent input[type="checkbox"] {
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+@media (max-width:600px){
+  form{
+    padding:18px;
+    gap:12px;
+  }
+  input,textarea{
+    font-size:16px;
+  }
+  .btn{
+    width:100%;
+    text-align:center;
+  }
+}
 
-    /* Hero */
-    .hero{
-      position:relative; overflow:hidden; background:linear-gradient(0deg, rgba(19,138,54,.08), rgba(19,138,54,.08)), url('hero-placeholder.jpg') center/cover no-repeat;
-      /* Ersetze hero-placeholder.jpg durch dein Bild */
-    }
-    .hero::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,.96))}
-    .hero-inner{position:relative; z-index:1; padding:88px 0 64px}
-    .kicker{color:var(--brand-dark); font-weight:800; letter-spacing:.12em; text-transform:uppercase; font-size:12px}
-    h1{margin:.3rem 0 1rem; font-size:clamp(28px,5vw,44px); line-height:1.15}
-    .hero p{max-width:800px; color:var(--muted); font-size:18px}
-    .hero-cta{margin-top:20px; display:flex; gap:12px; flex-wrap:wrap}
-    .trust{display:flex; gap:18px; flex-wrap:wrap; margin-top:26px; color:var(--muted); font-size:14px}
-
-    /* Sections */
-    section{padding:64px 0}
-    .section-muted{background:var(--section)}
-    .section-title{font-size:clamp(22px,3.5vw,34px); margin:0 0 22px}
-    .underline{height:4px; width:78px; background:var(--brand); border-radius:999px; margin:10px 0 28px}
-
-    /* Services */
-    .grid{display:grid; gap:20px}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    @media (max-width:900px){.grid-3{grid-template-columns:1fr}}
-    .card{
-      background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px;
-    }
-    .card h3{margin-top:10px}
-    .icon{width:34px; height:34px}
-
-    /* About */
-    .about{
-      display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:center;
-    }
-    @media (max-width:900px){.about{grid-template-columns:1fr}}
-
-    /* Gallery (simple slider) */
-    .slider{position:relative; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)}
-    .slides{display:flex; transition:transform .5s ease}
-    .slides img{width:100%; height:320px; object-fit:cover; flex:0 0 100%}
-    .slider button{
-      position:absolute; top:50%; transform:translateY(-50%); border:0; background:rgba(0,0,0,.45); color:#fff;
-      width:42px; height:42px; border-radius:50%; cursor:pointer
-    }
-    .slider .prev{left:10px} .slider .next{right:10px}
-
-    /* Contact */
-    form{
-      background:#fff; border-radius:var(--radius); box-shadow:var(--shadow);
-      padding:22px; display:grid; gap:14px;
-    }
-    label{font-weight:600}
-    input, textarea{
-      width:100%; padding:12px 14px; border:1.5px solid #dfe6e3; border-radius:10px; font:inherit; outline:none;
-    }
-    input:focus, textarea:focus{border-color:var(--brand)}
-    .consent{display:flex; gap:10px; align-items:flex-start; font-size:14px; color:var(--muted)}
-    .meta{font-size:14px; color:var(--muted)}
-
-    /* Footer */
-    footer{background:#0e1b16; color:#cfe3d8; padding:42px 0}
-    .foot-grid{display:grid; gap:24px; grid-template-columns:2fr 1fr}
-    @media (max-width:900px){.foot-grid{grid-template-columns:1fr}}
-
-    /* Floating actions */
-    .fab{
-      position:fixed; right:16px; bottom:16px; display:flex; flex-direction:column; gap:10px; z-index:60;
-    }
-    .fab a{
-      width:56px; height:56px; border-radius:50%; display:grid; place-items:center; color:#fff; box-shadow:var(--shadow); font-size:0;
-    }
-    .call{background:var(--brand)}
-    .wa{background:#25D366}
-    .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
-  </style>
 </head>
 <body>
 
@@ -395,4 +297,5 @@
     });
   </script>
 </body>
+
 </html>
