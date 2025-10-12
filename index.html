@@ -7,295 +7,166 @@
   <meta name="description" content="Zeki Vonal: Pflasterarbeiten, Terrassenbau, Maurerarbeiten sowie kompletter Garten- & Landschaftsbau. Qualitativ hochwertige Arbeit & kostenlose Beratung." />
   <meta name="theme-color" content="#138a36" />
 
-  /* Fix: responsives Kontaktformular und Datenschutz-Checkbox */
-.consent {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  flex-wrap: wrap;
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.5;
-}
-.consent input[type="checkbox"] {
-  margin-top: 3px;
-  flex-shrink: 0;
-}
-@media (max-width:600px){
-  form{
-    padding:18px;
-    gap:12px;
-  }
-  input,textarea{
-    font-size:16px;
-  }
-  .btn{
-    width:100%;
-    text-align:center;
-  }
-}
+  <style>
+    :root{
+      --brand:#138a36;
+      --brand-dark:#0f6e2c;
+      --text:#203128;
+      --muted:#5a6a61;
+      --bg:#ffffff;
+      --section:#f6f8f7;
+      --card:#ffffff;
+      --shadow:0 10px 25px rgba(0,0,0,.08);
+      --radius:16px;
+      --container:1180px;
+    }
 
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.6;
+    }
+    a{color:var(--brand);text-decoration:none}
+    a:hover{color:var(--brand-dark)}
+    .container{max-width:var(--container);margin:auto;padding:0 20px}
+    .btn{
+      display:inline-block;padding:12px 20px;border-radius:999px;font-weight:600;
+      background:var(--brand);color:#fff;box-shadow:var(--shadow);transition:.2s;
+    }
+    .btn:hover{background:var(--brand-dark);transform:translateY(-1px)}
+    .btn-outline{background:#fff;color:var(--brand);border:2px solid var(--brand)}
+    header{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .brand{display:flex;gap:12px;align-items:center;font-weight:800;color:var(--brand-dark)}
+    .brand svg{height:36px;width:36px}
+    nav ul{display:flex;gap:20px;list-style:none}
+    nav a{font-weight:600;color:var(--text)}
+    .burger{display:none;background:none;border:0;padding:8px}
+    @media(max-width:900px){
+      nav ul{display:none;position:absolute;left:0;right:0;top:72px;background:#fff;padding:16px 20px;flex-direction:column;box-shadow:var(--shadow)}
+      nav ul.open{display:flex}
+      .burger{display:block}
+    }
+
+    .hero{background:linear-gradient(0deg,rgba(19,138,54,.08),rgba(19,138,54,.08)),url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;position:relative}
+    .hero::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,0.9)}
+    .hero-inner{position:relative;z-index:1;padding:88px 0 64px}
+    .kicker{color:var(--brand-dark);font-weight:800;text-transform:uppercase;font-size:12px;letter-spacing:.12em}
+    h1{margin:.3rem 0 1rem;font-size:clamp(28px,5vw,44px);line-height:1.15}
+    .hero p{max-width:800px;color:var(--muted);font-size:18px}
+    .hero-cta{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
+    .trust{display:flex;gap:18px;flex-wrap:wrap;margin-top:26px;color:var(--muted);font-size:14px}
+    section{padding:64px 0}
+    .section-muted{background:var(--section)}
+    .section-title{font-size:clamp(22px,3.5vw,34px);margin-bottom:22px}
+    .underline{height:4px;width:78px;background:var(--brand);border-radius:999px;margin:10px 0 28px}
+    .grid{display:grid;gap:20px}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    @media(max-width:900px){.grid-3{grid-template-columns:1fr}}
+
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+    .card h3{margin-top:10px}
+    .icon{width:34px;height:34px}
+    .about{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
+    @media(max-width:900px){.about{grid-template-columns:1fr}}
+    .slider{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+    .slides{display:flex;transition:transform .5s ease}
+    .slides img{width:100%;height:320px;object-fit:cover;flex:0 0 100%}
+    .slider button{position:absolute;top:50%;transform:translateY(-50%);border:0;background:rgba(0,0,0,.45);color:#fff;width:42px;height:42px;border-radius:50%;cursor:pointer}
+    .slider .prev{left:10px}.slider .next{right:10px}
+    form{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;display:grid;gap:14px}
+    label{font-weight:600}
+    input,textarea{width:100%;padding:12px 14px;border:1.5px solid #dfe6e3;border-radius:10px;font:inherit;outline:none}
+    input:focus,textarea:focus{border-color:var(--brand)}
+    .consent{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted);flex-wrap:wrap;line-height:1.5}
+    .consent input[type="checkbox"]{margin-top:3px;flex-shrink:0}
+    .meta{font-size:14px;color:var(--muted)}
+    footer{background:#0e1b16;color:#cfe3d8;padding:42px 0}
+    .foot-grid{display:grid;gap:24px;grid-template-columns:2fr 1fr}
+    @media(max-width:900px){.foot-grid{grid-template-columns:1fr}}
+    @media(max-width:600px){
+      form{padding:18px;gap:12px}
+      input,textarea{font-size:16px}
+      .btn{width:100%;text-align:center}
+    }
+  </style>
 </head>
 <body>
-
-  <!-- Header -->
   <header>
     <div class="container nav">
-      <a class="brand" href="#top" aria-label="Startseite">
-        <!-- Mini-Logo als SVG -->
-        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M9 45c5-11 17-18 30-16 3-9 12-12 16-11-2 8-3 16-9 20 2 4 1 10-3 12-8 4-27 2-34-5z" fill="currentColor"/></svg>
-        <span>Zeki Vonal</span>
-      </a>
-
-      <button class="burger" aria-expanded="false" aria-controls="mainmenu" aria-label="Menü öffnen">
-        ☰
-      </button>
-
+      <a class="brand" href="#top"><svg viewBox="0 0 64 64"><path d="M9 45c5-11 17-18 30-16 3-9 12-12 16-11-2 8-3 16-9 20 2 4 1 10-3 12-8 4-27 2-34-5z" fill="currentColor"/></svg><span>Zeki Vonal</span></a>
+      <button class="burger">☰</button>
       <nav>
         <ul id="mainmenu">
           <li><a href="#leistungen">Leistungen</a></li>
           <li><a href="#ueber-uns">Über uns</a></li>
           <li><a href="#referenzen">Referenzen</a></li>
           <li><a href="#bewertungen">Bewertungen</a></li>
-          <li><a class="btn" href="#kontakt">Kostenlose Beratung</a></li>
+          <li><a class="btn" href="#kontakt">Beratung</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero" id="top" role="banner" aria-label="Einstiegsbereich">
+  <section class="hero" id="top">
     <div class="container hero-inner">
       <div class="kicker">Garten- & Landschaftsbau • Maurer- & Pflasterarbeiten</div>
-      <h1>Zeki Vonal in Ihrer Region:<br/>Pflasterarbeiten, Terrassenbau & Maurerarbeiten</h1>
-      <p>Wir gestalten Außenanlagen, auf die Sie stolz sind – mit **qualitativ hochwertiger Arbeit**,
-        klaren Absprachen und **kostenloser Beratung**. Von Pflasterflächen und Terrassen bis zu
-        Mauer- und Gartenbau – zuverlässig aus einer Hand.</p>
-
+      <h1>Zeki Vonal in Ihrer Region</h1>
+      <p>Wir gestalten Außenanlagen, auf die Sie stolz sind – mit hochwertiger Arbeit, klaren Absprachen und kostenloser Beratung.</p>
       <div class="hero-cta">
         <a class="btn" href="tel:+491733570229">Jetzt anrufen</a>
         <a class="btn btn-outline" href="#kontakt">Angebot anfordern</a>
       </div>
-
       <div class="trust">
         <span>⏱️ Termine schnell & verlässlich</span>
-        <span>🛠️ Saubere & präzise Ausführung</span>
-        <span>✅ 100% kostenlose Erstberatung</span>
+        <span>🛠️ Saubere Ausführung</span>
+        <span>✅ Kostenlose Erstberatung</span>
       </div>
     </div>
   </section>
 
-  <!-- Leistungen -->
   <section id="leistungen" class="section-muted">
     <div class="container">
       <h2 class="section-title">Diese Leistungen bieten wir an</h2>
       <div class="underline"></div>
-
       <div class="grid grid-3">
-        <article class="card">
-          <img class="icon" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23138a36'><path d='M3 20h18v-2H3v2zm0-4h18v-2H3v2zm0-4h18V10H3v2zm0-4h18V6H3v2z'/></svg>" alt="">
-          <h3>Pflasterarbeiten</h3>
-          <p>Einfahrten, Wege, Stellplätze & Höfe – fachgerecht in Naturstein, Betonstein oder Klinker mit funktionaler Entwässerung.</p>
-        </article>
-
-        <article class="card">
-          <img class="icon" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23138a36'><path d='M3 21h18V8l-6-5H3zM5 10h10v9H5z'/></svg>" alt="">
-          <h3>Terrassenbau</h3>
-          <p>Individuelle Terrassen aus Naturstein, Betonstein oder Holz – langlebig, pflegeleicht und perfekt an Haus & Garten angepasst.</p>
-        </article>
-
-        <article class="card">
-          <img class="icon" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23138a36'><path d='M2 21h20v-2H2v2zM4 17h4v-6H4v6zm6 0h4V7h-4v10zm6 0h4V3h-4v14z'/></svg>" alt="">
-          <h3>Maurerarbeiten</h3>
-          <p>Stützmauern, Beeteinfassungen, Treppenanlagen & Reparaturen – sauber gemauert und optisch harmonisch.</p>
-        </article>
-
-        <article class="card">
-          <img class="icon" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23138a36'><path d='M12 6l-2 2H6l-2 2v8h16v-8l-2-2h-4l-2-2z'/></svg>" alt="">
-          <h3>Garten- & Landschaftsbau</h3>
-          <p>Rasen (Rollrasen), Beete, Hecken, Erdarbeiten, Zaunbau & Pflege – alles für ein stimmiges Gesamtbild.</p>
-        </article>
-
-        <article class="card">
-          <img class="icon" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23138a36'><path d='M3 12l9-9 9 9-1.5 1.5L12 5.5 4.5 13.5 3 12z'/></svg>" alt="">
-          <h3>Kostenlose Beratung</h3>
-          <p>Wir kommen vorbei, beraten ehrlich und erstellen ein transparentes Angebot – ohne versteckte Kosten.</p>
-        </article>
+        <article class="card"><h3>Pflasterarbeiten</h3><p>Einfahrten, Wege, Stellplätze – fachgerecht in Natur- oder Betonstein.</p></article>
+        <article class="card"><h3>Terrassenbau</h3><p>Individuell geplant, langlebig und perfekt auf Ihr Haus abgestimmt.</p></article>
+        <article class="card"><h3>Maurerarbeiten</h3><p>Stützmauern, Treppen, Beeteinfassungen – präzise & dauerhaft.</p></article>
       </div>
     </div>
   </section>
 
-  <!-- Über uns -->
-  <section id="ueber-uns">
-    <div class="container about">
-      <div>
-        <h2 class="section-title">Über Uns</h2>
-        <div class="underline"></div>
-        <p>Wir sind ein engagiertes Team für Außenanlagen im gesamten Umland.
-           Unser Anspruch: <strong>präzise Ausführung, saubere Baustellen und langlebige Ergebnisse</strong>.
-           Jede Fläche planen wir sinnvoll – vom Unterbau bis zur Entwässerung.</p>
-        <p class="meta">Standort: <strong>Adresse, 63667 Nidda</strong> • Telefon: <a href="tel:+491733570229">+491733570229</a> •
-          E-Mail: <a href="mailto:info@deine-domain.de">info@deine-domain.de</a></p>
-        <div style="margin-top:14px">
-          <a class="btn" href="#kontakt">Beratungstermin sichern</a>
-        </div>
-      </div>
-      <div class="slider" aria-label="Projekt-Galerie">
-        <div class="slides" id="slides">
-          <!-- Ersetze die Platzhalterbilder -->
-          <img src="https://images.unsplash.com/photo-1616128618694-96a9f875f4bd?q=80&w=1200&auto=format&fit=crop" alt="Pflastereinfahrt">
-          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1200&auto=format&fit=crop" alt="Terrasse aus Stein">
-          <img src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2a74?q=80&w=1200&auto=format&fit=crop" alt="Gartenanlage">
-        </div>
-        <button class="prev" aria-label="Vorheriges Bild">‹</button>
-        <button class="next" aria-label="Nächstes Bild">›</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Referenzen -->
-  <section id="referenzen" class="section-muted">
-    <div class="container">
-      <h2 class="section-title">Referenzen & Projekte</h2>
-      <div class="underline"></div>
-      <p>Auf Wunsch senden wir Ihnen passende Referenzadressen und Beispielprojekte in Ihrer Nähe.</p>
-    </div>
-  </section>
-
-  <!-- Bewertungen -->
-  <section id="bewertungen">
-    <div class="container">
-      <h2 class="section-title">Die Meinungen unserer Kunden</h2>
-      <div class="underline"></div>
-      <p>Unsere Google-Bewertungen finden Sie hier:
-        <a href="https://www.google.com/search?q=Zeki+Vonal" target="_blank" rel="noopener">Direkt auf Google ansehen</a>.</p>
-    </div>
-  </section>
-
-  <!-- Kontakt -->
-  <section id="kontakt" class="section-muted" aria-label="Kontaktformular">
+  <section id="kontakt" class="section-muted">
     <div class="container">
       <h2 class="section-title">Kontakt & kostenlose Beratung</h2>
       <div class="underline"></div>
-
       <form id="contactForm" novalidate>
-        <div>
-          <label for="name">Name *</label>
-          <input id="name" name="name" required placeholder="Ihr Name" />
-        </div>
-        <div>
-          <label for="email">E-Mail *</label>
-          <input id="email" name="email" type="email" required placeholder="ihre@mail.de" />
-        </div>
-        <div>
-          <label for="phone">Telefon</label>
-          <input id="phone" name="phone" placeholder="+49 ..." />
-        </div>
-        <div>
-          <label for="message">Ihre Nachricht *</label>
-          <textarea id="message" name="message" rows="5" required placeholder="Worum geht es?"></textarea>
-        </div>
-
-        <label class="consent">
-          <input type="checkbox" id="consent" required />
-          <span>Ich stimme der Verarbeitung meiner Angaben gemäß der
-            <a href="#datenschutz">Datenschutzerklärung</a> zu.</span>
-        </label>
-
-        <div>
-          <button class="btn" type="submit">Rückruf anfordern</button>
-          <span class="meta">oder per E-Mail: <a href="mailto:info@deine-domain.de">info@deine-domain.de</a></span>
-        </div>
-        <p id="formStatus" class="meta" role="status" aria-live="polite"></p>
+        <div><label for="name">Name *</label><input id="name" required placeholder="Ihr Name"></div>
+        <div><label for="email">E-Mail *</label><input id="email" type="email" required placeholder="ihre@mail.de"></div>
+        <div><label for="message">Ihre Nachricht *</label><textarea id="message" rows="5" required></textarea></div>
+        <label class="consent"><input type="checkbox" required><span>Ich stimme der Verarbeitung meiner Angaben gemäß der <a href="#">Datenschutzerklärung</a> zu.</span></label>
+        <button class="btn" type="submit">Absenden</button>
       </form>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="container foot-grid">
       <div>
-        <strong>Zeki Vonal – Maurer- & Pflasterarbeiten | Garten- & Landschaftsbau</strong><br/>
-        Adresse, 63667 Nidda<br/>
-        Tel. <a href="tel:+491733570229" style="color:#cfe3d8">+491733570229</a> •
+        <strong>Zeki Vonal – Maurer- & Pflasterarbeiten</strong><br>
+        63667 Nidda<br>
+        Tel: <a href="tel:+491733570229" style="color:#cfe3d8">+491733570229</a><br>
         <a href="mailto:info@deine-domain.de" style="color:#cfe3d8">info@deine-domain.de</a>
-        <p class="meta">© <span id="year"></span> Zeki Vonal. Alle Rechte vorbehalten.</p>
-      </div>
-      <div>
-        <a id="datenschutz" class="meta" href="#">Datenschutzerklärung</a><br/>
-        <span class="meta">Impressum.</span>
+        <p class="meta">© <span id="year"></span> Zeki Vonal</p>
       </div>
     </div>
   </footer>
 
-  <!-- Floating Call / WhatsApp -->
-  <div class="fab" aria-label="Schnellkontakt">
-    <a class="call" href="tel:+491733570229" aria-label="Anrufen">📞</a>
-    <a class="wa" href="https://wa.me/4900000000000" target="_blank" rel="noopener" aria-label="WhatsApp">🟢</a>
-  </div>
-
   <script>
-    // Jahr
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Burger-Menü
-    const burger = document.querySelector('.burger');
-    const menu = document.getElementById('mainmenu');
-    burger.addEventListener('click', () => {
-      const open = menu.classList.toggle('open');
-      burger.setAttribute('aria-expanded', String(open));
-    });
-
-    // Einfacher Slider
-    const slides = document.getElementById('slides');
-    const prev = document.querySelector('.slider .prev');
-    const next = document.querySelector('.slider .next');
-    let index = 0;
-    const count = slides.children.length;
-
-    function render(){ slides.style.transform = `translateX(-${index*100}%)`; }
-    prev.addEventListener('click', ()=>{ index = (index-1+count)%count; render(); });
-    next.addEventListener('click', ()=>{ index = (index+1)%count; render(); });
-    setInterval(()=>{ index=(index+1)%count; render(); }, 5000);
-
-    // Kontaktformular – einfache Validierung + Mailto-Fallback
-    const form = document.getElementById('contactForm');
-    const statusEl = document.getElementById('formStatus');
-    form.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      if(!form.reportValidity()){ return; }
-
-      // OPTION 1: Formspree/Netlify – ENDPOINT hier eintragen (ersetzt die mailto-Zeilen unten)
-      const FORMSPREE_ENDPOINT = ""; // z.B. "https://formspree.io/f/xxxxxx"
-
-      if (FORMSPREE_ENDPOINT) {
-        try{
-          const data = Object.fromEntries(new FormData(form).entries());
-          const res = await fetch(FORMSPREE_ENDPOINT, {
-            method:'POST', headers:{'Accept':'application/json'}, body:new FormData(form)
-          });
-          if(res.ok){
-            statusEl.textContent = "Danke! Wir melden uns schnellstmöglich.";
-            form.reset();
-          } else { throw new Error(); }
-        }catch(err){
-          statusEl.textContent = "Senden fehlgeschlagen. Bitte rufen Sie uns an oder senden Sie eine E-Mail.";
-        }
-        return;
-      }
-
-      // OPTION 2: Mailto-Fallback (öffnet das E-Mail-Programm des Nutzers)
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const message = document.getElementById('message').value.trim();
-      const body = encodeURIComponent(
-        `Name: ${name}\nE-Mail: ${email}\nTelefon: ${phone}\n\nNachricht:\n${message}`
-      );
-      window.location.href = `mailto:info@deine-domain.de?subject=Anfrage%20von%20der%20Website&body=${body}`;
-      statusEl.textContent = "E-Mail-Programm wurde geöffnet.";
-    });
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
-
 </html>
