@@ -19,6 +19,8 @@
       line-height: 1.6;
     }
 
+
+
     header {
       display: flex;
       justify-content: space-between;
@@ -153,7 +155,34 @@
         width: 100%;
       }
     }
+
+    
   </style>
+  <style>
+/* Navigation auf Mobilgeräten verbessern */
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+nav ul li a {
+  display: block;
+  text-align: center;
+  padding: 0.5rem 1rem;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>
 </head>
 <body>
 
@@ -164,7 +193,10 @@
       <a href="#ueber-uns">Über uns</a>
       <a href="#referenzen">Referenzen</a>
       <a href="#kontakt">Kontakt</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
     </nav>
+
   </header>
 
   <section class="hero">
@@ -249,7 +281,7 @@
   <footer id="kontakt">
     <p>&copy; 2025 Zeki Vonal – Pflasterarbeiten, Garten- & Landschaftsbau</p>
     <p>
-      <a href="#impressum">Impressum</a> | <a href="#datenschutz">Datenschutz</a>
+      <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a>
     </p>
   </footer>
 
